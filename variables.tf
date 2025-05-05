@@ -256,13 +256,6 @@ variable "batch_min_healthy_percentage" {
 
 ## Scheduled Task ##
 variable "scheduled_task" {
-  type = object({
-    shutdown_is_enabled       = bool
-    shutdown_time_windows     = list(string)
-    taskscheduling_is_enabled = bool
-    cron_expression           = string
-    task_type                 = string
-  })
   default     = null
   description = "Scheduled Tasks Block"
 }
