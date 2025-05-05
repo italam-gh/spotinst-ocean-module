@@ -263,7 +263,7 @@ variable "scheduled_task" {
     cron_expression           = optional(string,null)
     task_type                 = optional(string,null)
   })
-  default     = {}
+  default     = null
   description = "Scheduled Tasks Block"
 }
 

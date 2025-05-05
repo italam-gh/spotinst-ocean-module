@@ -136,7 +136,7 @@ resource "spotinst_ocean_ecs" "ocean_ecs" {
   }
 
   dynamic "scheduled_task" {
-    for_each = var.scheduled_task != null && var.scheduled_task.is_enabled_shutdown_hours ? [var.scheduled_task] : []
+    for_each = try(var.scheduled_task.is_enabled_shutdown_hours, false) ? [var.scheduled_task] : []
     content {
       shutdown_hours {
         is_enabled   = scheduled_task.value.is_enabled_shutdown_hours
@@ -146,7 +146,7 @@ resource "spotinst_ocean_ecs" "ocean_ecs" {
   }
 
   dynamic "scheduled_task" {
-    for_each = var.scheduled_task != null && var.scheduled_task.is_enabled_tasks ? [var.scheduled_task] : []
+    for_each = try(var.scheduled_task.is_enabled_tasks, false) ? [var.scheduled_task] : []
     content {
       tasks {
         cron_expression = scheduled_task.value.cron_expression
