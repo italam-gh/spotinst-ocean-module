@@ -257,7 +257,7 @@ variable "batch_min_healthy_percentage" {
 ## Scheduled Task ##
 variable "scheduled_task" {
   type = object({
-    is_enabled_tasks       = optional(bool, false)
+    is_enabled_shutdown_hours       = optional(bool, false)
     time_windows     = optional(list(string),null)
     is_enabled_tasks = optional(bool, false)
     cron_expression           = optional(string,null)
